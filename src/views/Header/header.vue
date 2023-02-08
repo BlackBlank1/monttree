@@ -5,17 +5,17 @@
             <div class="navbar-title">
                 <img src="src/images/logo.png" alt="" style="height: 100%">
                 <div style="flex-grow: 1"></div>
-                <div class="title-info">
-                    <a @click="Submit(1)"> Home </a>
+                <div class="title-info" @click="Submit(1)">
+                    <span> Home </span>
                 </div>
-                <div class="title-info">
-                    <a @click="Submit(2)"> About </a>
+                <div class="title-info" @click="Submit(2)">
+                    <span> About </span>
                 </div>
-                <div class="title-info">
-                    <a @click="Submit(3)"> Products </a>
+                <div class="title-info" @click="Submit(3)">
+                    <span> Products </span>
                 </div>
-                <div class="title-info">
-                    <a @click="Submit(4)"> Contact </a>
+                <div class="title-info" @click="Submit(4)">
+                    <span> Contact </span>
                 </div>
             </div>
         </div>
@@ -44,33 +44,37 @@
     </div>
 
     <!--  About  -->
-    <div class="about-frame" id="page2">
-        <div style="display: flex">
-            <h1 style="font-size: 36px; margin-top: 70px; font-weight: inherit"> ABOUT US</h1>
-        </div>
-        <div>
-            <hr>
-        </div>
-        <div style="display: flex; flex-direction: row; font-size: 18px; padding: 20px">
-            <div style="display: flex; width: 547px; padding-right: 30px">
-                <p>Monttree Precision Optical Co., Ltd founded in 2005. Monttree is an optical manufacturer, which
-                    dedicates to high quality optics products , such as dome ,lens, prisms,mirrors, windows and etc. We
-                    serves Laser, electronics, telecommunication, thermal imaging, infrared sensor for industrial,
-                    medical and scientific research applications.</p>
-            </div>
-            <div style="display: flex; width: 547px">
-                <p>Our skilled engineers can design and process optical products to meet your custom requirements. We
-                    can provide you the most effective and timely help,and superior quality,low cost products.
-                    We know well about ISO10110, US Military standard and DIN. Our products are fully complied with
-                    these standards and we carry out strict quality control according to ISO 9001 quality management
-                    system.
-                </p>
+    <div style="margin-top: 60px" id="page2">
+        <div class="container">
+            <div style="margin-top: 10px">
+                <br>
+                <h1 class="centered col-lg-offset-5">ABOUT US</h1>
+                <hr style="margin-top: 20px">
+                <div class="col-lg-6">
+                    <p style="font-size: 18px">Monttree Precision Optical Co., Ltd founded in 2005. Monttree is an
+                        optical manufacturer, which
+                        dedicates to high quality optics products , such as dome ,lens, prisms,mirrors, windows and etc.
+                        We
+                        serves Laser, electronics, telecommunication, thermal imaging, infrared sensor for industrial,
+                        medical and scientific research applications.</p>
+                </div>
+                <div class="col-lg-6">
+                    <p style="font-size: 18px">Our skilled engineers can design and process optical products to meet
+                        your custom requirements. We
+                        can provide you the most effective and timely help,and superior quality,low cost products.
+                        <br>We know well about ISO10110, US Military standard and DIN. Our products are fully complied
+                        with
+                        these standards and we carry out strict quality control according to ISO 9001 quality management
+                        system.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
+
     <!-- Products  -->
-    <div class="products-frame" id="page3">
+    <div class="products-bg" id="page3">
         <!--   Title    -->
         <div class="products-title">
             <div>
@@ -84,10 +88,10 @@
 
     <!-- Dome -->
     <div class="dome">
-        <div>
-            <h2 style="font-size: 30px; margin-left: -550px">Dome</h2>
+        <div class="col-lg-9 col-lg-offset-0">
+            <h2 style="font-size: 30px;">Dome</h2>
         </div>
-        <div style="margin-left: -200px">
+        <div class="col-lg-9 col-lg-offset-0">
             <p style="font-size: 18px">Material: optical glass, fused silica, ZnSe, ZnS, germanium, silicon, sapphire,
                 MgF2,
                 polycarbanate and etc
@@ -98,35 +102,23 @@
             </p>
         </div>
 
-        <div v-if="products.dome.length">
-            <h1>
-                {{ products.dome[0].name }}
-            </h1>
-        </div>
-
-        <h1>{{ products.dome.length }}</h1>
-        <h1>1111111111</h1>
-
         <!--products-images-->
-        <div style="display: flex; flex-direction: row;">
-            <div style="width: 255px; padding-right: 40px">
-                <div style="display: flex; flex-direction: column">
-                    <div style="margin-bottom: -20px; overflow: hidden; height: 200px" v-for="item in products.dome">
-                        <!--                        <img src="src/images/products/dome_coated_bk7.jpg" alt="COATED BK7 dome" style="width: 100%">-->
-                        <img :src="item.image" alt="" style="width: 100%">
-                        <h1>{{ item.name }}</h1>
-                    </div>
-                    <div style="background: #3498db">
-                        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-                            <span style="color: white; font-weight: bold">COATED BK7 Dome</span>
-                            <span style="color: white; font-size: 14px">We can meet dual wave band coating</span>
-                        </div>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-left: 185px; margin-top: 20px">
+            <div style="display: flex; flex-direction: column; width: 255px; height: 264px;margin-left: 20px"
+                 v-for="item in products.dome" id="products_box">
+                <div style="overflow: hidden;width: 255px; height: 204px">
+                    <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                </div>
+                <div style="background: #3498db; height: 40px; display: flex; justify-content: center; align-items: center">
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                        <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                        <span style="color: white; font-size: 14px">{{ item.description }}</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-
 
     <!-- Footer -->
     <div id="page4">
@@ -147,8 +139,8 @@
                     <h1>MONTTREE PRECISION OPTICAL CO., LTD</h1>
                 </div>
                 <div>
-                    <h3>Contact</h3>
-                    <p>
+                    <h3 style="font-size: 24px">Contact</h3>
+                    <p style="font-size: 18px">
                         <span class="icon icon-home"></span> NO.111 Meifeng Rd., Fuzhou,Fujian, China 350003<br/>
                         <span class="fa fa-envelope"></span> info<img src="src/images/at.png" style="width: 18px;">monttree.com
                         <br/>
@@ -160,11 +152,11 @@
         </div>
         <div class="footer">
             <div class="footer-content">
-                <div>
+                <div style="margin-top: 20px">
                     <h4 style="color: white; font-size: 18px">Copyright ©Monttree Precision Optical All Rights
                         Reserved</h4>
                 </div>
-                <div style="margin-top: -30px">
+                <div class="copyright">
                     <p>
                         <a href="https://beian.miit.gov.cn/">闽ICP备17023185号</a><br>
                         <a href="https://beian.miit.gov.cn/" style="margin-left: 28px">工信部备案</a>
@@ -181,30 +173,12 @@
     import {toRaw} from "vue";
     import Products from "@/store/products";
 
-
     export default {
         name: "",
         mounted() {
             this.$store.dispatch('getProductsList');
-            // var mySwiper = new Swiper(this.$refs.floorSwiper, {
-            //     loop: true, // 循环模式选项
-            //     // 如果需要分页器
-            //     pagination: {
-            //         el: '.swiper-pagination',
-            //         clickable: true,
-            //     },
-            //
-            //     // 如果需要前进后退按钮
-            //     navigation: {
-            //         nextEl: '.swiper-button-next',
-            //         prevEl: '.swiper-button-prev',
-            //     }
-            // });
         },
         computed: {
-            // products() {
-            //     return this.$store.state.Products.products
-            // }
             ...mapState({
                 products: state => {
                     return state.Products.products;
@@ -212,7 +186,7 @@
             })
             // ...mapState({
             //     products: state => {
-                        // !不需要toRaw!
+            // !不需要toRaw!
             //         let products = toRaw(state.Products);
             //         products = products.products;
             //         console.log(products)
@@ -221,7 +195,7 @@
             //             return products
             //         } else {
             //             console.log(2222)
-                        // 这个写法不对！
+            // 这个写法不对！
             //             return {dome: []}
             //         }
             //     }
@@ -233,23 +207,23 @@
                 deep: true,
                 handler() {
                     console.log("handler")
-                        this.$nextTick(() => {
-                            //在new swiper实例之前，页面中的结构必须要有
-                            var mySwiper = new Swiper(this.$refs.floorSwiper, {
-                                loop: true, // 循环模式选项
-                                // 如果需要分页器
-                                pagination: {
-                                    el: '.swiper-pagination',
-                                    clickable: true,
-                                },
+                    this.$nextTick(() => {
+                        //在new swiper实例之前，页面中的结构必须要有
+                        var mySwiper = new Swiper(this.$refs.floorSwiper, {
+                            loop: true, // 循环模式选项
+                            // 如果需要分页器
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                            },
 
-                                // 如果需要前进后退按钮
-                                navigation: {
-                                    nextEl: '.swiper-button-next',
-                                    prevEl: '.swiper-button-prev',
-                                }
-                            });
-                        })
+                            // 如果需要前进后退按钮
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            }
+                        });
+                    })
                 }
             }
         },
@@ -264,18 +238,25 @@
                     'top': PageId.offsetTop,
                     'behavior': 'smooth'
                 })
-            }
+            },
         }
     }
 </script>
 
-<style scoped>
+<style>
+
+    .copyright a:hover {
+        color: #3498db;
+    }
+
+    .title-info{
+        cursor: pointer;
+    }
 
     /* Header */
     .navbar-header {
         height: 50px;
         display: flex;
-        margin-top: -10px;
     }
 
     .navbar-title {
@@ -291,7 +272,6 @@
 
     .title-info {
         height: 50px;
-        background: azure;
         margin: 0;
         padding-left: 10px;
         padding-right: 10px;
@@ -301,7 +281,7 @@
     }
 
     .title-info:hover {
-        background: aqua;
+        background: gray;
     }
 
 
@@ -316,22 +296,17 @@
 
 
     /* About */
-    .about-frame {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
 
 
     /* Products*/
-    .products-frame {
+    .products-bg {
         display: flex;
         background-image: url("src/images/bg/divider1_1.jpg");
         height: 300px;
         align-items: center;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 80px;
+        margin-bottom: 40px;
     }
 
     .products-title {
@@ -388,6 +363,7 @@
     /* Footer */
     .footer {
         background: #2b2b2b;
+        height: 117px;
     }
 
     .footer-content {

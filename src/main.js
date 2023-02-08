@@ -5,6 +5,7 @@ import store from '@/store';
 import "swiper/css/swiper.css";
 import "./font-awesome/css/font-awesome.min.css"
 import "./css/icomoon.css"
+import "./bootstrap/css/bootstrap.min.css"
 
 const app = createApp(App);
 app.use(router);
