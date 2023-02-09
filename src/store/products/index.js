@@ -3,7 +3,12 @@ import { reqProductsList } from "@/api";
 const state = {
     // 对象的字段都需要初始化
     products: {
-        dome: [] // 避免一开始报错
+        dome: [], // 避免一开始报错
+        window: [],
+        prism: [],
+        lens: [],
+        asperical_Lens: [],
+        parabolic_Mirrors: []
     },
 };
 const mutations = {
@@ -17,7 +22,7 @@ const actions = {
         for (const key in result) {
             for (const it of result[key]) {
                 it.image = "http://localhost:3000/images/products/" + it.image;
-                console.log(it)
+                // console.log(it)
             }
         }
         commit("GETPRODUCTSLIST", result);

@@ -1,7 +1,7 @@
 <template>
     <!-- header -->
     <div class="navbar-header" id="page1">
-        <div style="width: 100%; position: fixed; z-index: 999; background: white">
+        <div style="width: 100%; position: fixed; z-index: 999; background: white; border: 1px solid #cccccc">
             <div class="navbar-title">
                 <img src="src/images/logo.png" alt="" style="height: 100%">
                 <div style="flex-grow: 1"></div>
@@ -11,8 +11,34 @@
                 <div class="title-info" @click="Submit(2)">
                     <span> About </span>
                 </div>
-                <div class="title-info" @click="Submit(3)">
-                    <span> Products </span>
+                <div class="title-info">
+                    <div class="topclick">
+                        <div class="ltbox1" @click="Submit(3)">
+                            <p>Products</p>
+                        </div>
+                        <ul class="ltbox2">
+                            <li @click="Submit(5)">Dome</li>
+                            <li @click="Submit(6)">Window</li>
+                            <li @click="Submit(7)">Prism</li>
+                            <li @click="Submit(8)">Lens</li>
+                            <li style="height: 60px; display: flex; flex-direction: column;" @click="Submit(9)">
+                                <div style="margin-bottom: -10px">
+                                    Aspherical
+                                </div>
+                                 <div>
+                                     Lens
+                                 </div>
+                            </li>
+                            <li style="height: 60px; display: flex; flex-direction: column;" @click="Submit(10)">
+                                <div style="margin-bottom: -10px">
+                                    Parabolic
+                                </div>
+                                <div>
+                                    Mirrors
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="title-info" @click="Submit(4)">
                     <span> Contact </span>
@@ -23,16 +49,10 @@
     </div>
 
     <!-- Carousel -->
-    <div class="swiper-container" ref="floorSwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="src/images/banner_1.jpg" alt="" style="height: 100%; width: 100%">
-            </div>
-            <div class="swiper-slide">
-                <img src="src/images/banner_2.jpg" alt="" style="height: 100%; width: 100%">
-            </div>
-            <div class="swiper-slide">
-                <img src="src/images/banner_3.jpg" alt="" style="height: 100%; width: 100%">
+    <div class="swiper-container" ref="floorSwiper" style="height: 610px">
+        <div class="swiper-wrapper" style="margin-top: 30px">
+            <div class="swiper-slide" v-for="item in carousel.carousel">
+                <img :src="item.image" alt={{item.name}} style="height: 100%; width: 100%">
             </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -44,12 +64,12 @@
     </div>
 
     <!--  About  -->
-    <div style="margin-top: 60px" id="page2">
+    <div style="margin-top: 10px" id="page2">
         <div class="container">
             <div style="margin-top: 10px">
                 <br>
-                <h1 class="centered col-lg-offset-5">ABOUT US</h1>
-                <hr style="margin-top: 20px">
+                <h1 class="centered col-lg-offset-5" style="margin-top: 20px">ABOUT US</h1>
+                <hr style="margin-top: 20px;margin-bottom: 50px" class="hr-style">
                 <div class="col-lg-6">
                     <p style="font-size: 18px">Monttree Precision Optical Co., Ltd founded in 2005. Monttree is an
                         optical manufacturer, which
@@ -72,22 +92,20 @@
         </div>
     </div>
 
-
-    <!-- Products  -->
+    <!-- Products bg -->
     <div class="products-bg" id="page3">
-        <!--   Title    -->
         <div class="products-title">
             <div>
                 <h1 style="font-size: 40px; color: white;">OUR PRODUCTS</h1>
             </div>
             <div>
-                <hr>
+                <hr class="hr-style">
             </div>
         </div>
     </div>
 
     <!-- Dome -->
-    <div class="dome">
+    <div class="dome" id="page5">
         <div class="col-lg-9 col-lg-offset-0">
             <h2 style="font-size: 30px;">Dome</h2>
         </div>
@@ -115,7 +133,189 @@
                         <span style="color: white; font-size: 14px">{{ item.description }}</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Window   -->
+    <div id="page6" class="greywrap" style="background-color: #f5f5f5; height: 651px; margin-top: 40px">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; margin-top: 40px">
+                <div class="col-lg-12">
+                    <h2>Window</h2>
+                    <p style="font-size: 18px">Material: BK7, quartz, fused silica , ZNSE, ZNS, germanium, silicon,
+                        sapphire, MgF2, LiF, GaAs,
+                        CaF2, BaF2 and etc
+                        <br> We can process the window size to be 800mm
+                        <br> The surface accuracy can be λ/30
+                        <br> The parallelism can get to be +/-1 second
+                        <br> The thickness can be 0.1mm
+                        <br> Surface quality can be 40-20 or better
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
+                    <div style="display: flex; flex-direction: column; width: 350px; height: 293px;margin-left: 15px"
+                         v-for="item in products.window" id="products_box">
+                        <div style="overflow: hidden;width: 350px; height: 253px">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="background: #3498db; height: 50px; display: flex; justify-content: center; align-items: center">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <span style="color: white; font-size: 14px">{{ item.description }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Prism  -->
+    <div id="page7" class="whitewrap">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; flex-direction: column">
+                <div class="col-lg-12">
+                    <h2>Prism</h2>
+                    <p style="font-size: 18px">Material: BK7, quartz, fused silica, ZNSE, ZNS, germanium, silicon, sapphire, YAG, CaF2, BaF2,
+                        SiC and etc
+                        <br> The surface accuracy can be λ/30
+                        <br> The angle toerlance can be +/-1 second
+                        <br> Surfac qaulity can be 20-10 or better
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
+                    <div style="display: flex; flex-direction: column; width: 255px; height: 264px;margin-left: 20px"
+                         v-for="item in products.prism" id="products_box">
+                        <div style="overflow: hidden;width: 255px; height: 190px" v-if="!item.description">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="overflow: hidden;width: 255px; height: 150px" v-if="item.description">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="background: #3498db; height: 40px; display: flex; justify-content: center; align-items: center" v-if="!item.description">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <div style="display: flex; flex-direction: column;padding: 0; margin: 0">
+                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: #3498db; height: 80px; display: flex; justify-content: center; align-items: center" v-if="item.description">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <div style="display: flex; flex-direction: column;padding: 0; margin: 0">
+                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lens  -->
+    <div id="page8" class="greywrap" style="background-color: #f5f5f5; height: 850px; margin-top: 40px">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; margin-top: 40px">
+                <div class="col-lg-12">
+                    <h2>Lens</h2>
+                    <p style="font-size: 18px">Material: Schott glass, fused silica, ZNSE, ZNS, germanium, silicon, sapphire, MgF2, LiF, GaAs,
+                        CaF2, BaF2, polycarbanate, PMMA and etc
+                        <br> We can process the lens size to be 500mm,
+                        <br> The surface accuracy can be λ/30
+                        <br> The cetering error can be less than 30 seconds or better
+                        <br> The surface quality can be 20-10 or better
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
+                    <div style="display: flex; flex-direction: column; width: 260px; height: 264px;margin-left: 20px"
+                         v-for="item in products.lens" id="products_box">
+                        <div style="overflow: hidden;width: 260px; height: 190px">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="background: #3498db; height: 50px; display: flex; justify-content: center; align-items: center">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <div style="display: flex; flex-direction: column;">
+                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aspherical Lens  -->
+    <div id="page9" class="whitewrap" style="height: 350px; margin-top: 40px">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; flex-direction: row">
+                <div class="col-lg-6">
+                    <h2>Aspherical Lens</h2>
+                    <p style="font-size: 18px;">Material: optical glass, fused silica, germanium, silicon, PMMA and etc
+                        <br> RMS less than λ/30
+                        <br> S.D. can be 40-20
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap;margin-left: 20px">
+                    <div style="display: flex; flex-direction: column; width: 355px; height: 348px;margin-left: 20px"
+                         v-for="item in products.asperical_Lens" id="products_box">
+                        <div style="overflow: hidden;width: 355px; height: 288px">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="background: #3498db; height: 50px; display: flex; justify-content: center; align-items: center">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <div style="display: flex; flex-direction: column;">
+                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parabolic Mirrors -->
+    <div id="page10" class="greywrap" style="height: 450px; margin-top: 40px; background-color: #f5f5f5;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; flex-direction: row; margin-top: 40px">
+                <div class="col-lg-6">
+                    <h2>Parabolic Mirrors</h2>
+                    <p style="font-size: 18px">Material : CU, Al
+                        <br> RMS can be less than λ/30
+                    </p>
+                </div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap;margin-left: 20px">
+                    <div style="display: flex; flex-direction: column; width: 355px; height: 348px;margin-left: 20px"
+                         v-for="item in products.parabolic_Mirrors" id="products_box">
+                        <div style="overflow: hidden;width: 355px; height: 288px">
+                            <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
+                        </div>
+                        <div style="background: #3498db; height: 50px; display: flex; justify-content: center; align-items: center">
+                            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+                                <span style="color: white; font-weight: bold">{{ item.name }}</span>
+                                <div style="display: flex; flex-direction: column;">
+                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,7 +329,7 @@
                     <h1>THANKS FOR VISITING US</h1>
                 </div>
                 <div>
-                    <hr>
+                    <hr class="hr-style">
                 </div>
             </div>
         </div>
@@ -177,12 +377,21 @@
         name: "",
         mounted() {
             this.$store.dispatch('getProductsList');
+            this.$store.dispatch('getCarouselList')
+            this.$store.dispatch('getBackgroundList')
         },
         computed: {
             ...mapState({
                 products: state => {
                     return state.Products.products;
-                }
+                },
+                carousel: state => {
+                    return state.Carousel.carousel
+                },
+                // background: state => {
+                //     // console.log(state.Background.background)
+                //     return state.Background.background
+                // },
             })
             // ...mapState({
             //     products: state => {
@@ -202,11 +411,8 @@
             // })
         },
         watch: {
-            products: {
-                immediate: true,
-                deep: true,
+            carousel: {
                 handler() {
-                    console.log("handler")
                     this.$nextTick(() => {
                         //在new swiper实例之前，页面中的结构必须要有
                         var mySwiper = new Swiper(this.$refs.floorSwiper, {
@@ -230,12 +436,12 @@
         methods: {
             Submit(key) {
                 // 获取点击的按钮对应页面的id
-                var PageId = document.querySelector('#page' + key)
+                var PageId = document.querySelector('#page' + key);
                 // 使用平滑属性，滑动到上方获取的距离
                 // 下方我只设置了top，当然 你也可以加上 left 让他横向滑动
                 // widow 根据浏览器滚动条，如果你是要在某个盒子里面产生滑动，记得修改
                 window.scrollTo({
-                    'top': PageId.offsetTop,
+                    'top': PageId.offsetTop - 50,
                     'behavior': 'smooth'
                 })
             },
@@ -243,13 +449,56 @@
     }
 </script>
 
+<!--Drop down box css-->
+<style>
+    .topclick {
+        height: 50px;
+        width: 100px;
+        position:relative;
+        display:inline-block;
+    }
+
+    .ltbox1 {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;        /*鼠标指针经过*/
+    }
+    .ltbox2{
+        width: 120px;
+        margin-top: 2px;
+        border-radius: 5px;
+        background-color: white;
+        display: none;        /*使下拉菜单栏消失*/
+        margin-left: -10px;
+    }
+
+    .ltbox2 li{
+        height: 40px;
+        width: 120px;
+        line-height: 40px;
+        display: flex;        /*使下拉菜单栏显示*/
+        justify-content: center;
+        align-items: center;
+        margin-left: -40px;
+    }
+    .ltbox2 li:hover{
+        background-color:#cccccc;
+    }
+
+    .topclick:hover .ltbox2{
+        display: block;
+    }
+</style>
+
 <style>
 
     .copyright a:hover {
         color: #3498db;
     }
 
-    .title-info{
+    .title-info {
         cursor: pointer;
     }
 
@@ -281,7 +530,7 @@
     }
 
     .title-info:hover {
-        background: gray;
+        background: #cccccc;
     }
 
 
@@ -292,6 +541,7 @@
         --swiper-theme-color: white; /* 设置Swiper风格 */
         --swiper-navigation-color: white; /* 单独设置按钮颜色 */
         --swiper-navigation-size: 30px; /* 设置按钮大小 */
+        padding-top: 100px;
     }
 
 
@@ -305,8 +555,8 @@
         height: 300px;
         align-items: center;
         justify-content: center;
-        margin-top: 80px;
-        margin-bottom: 40px;
+        margin-top: 60px;
+        margin-bottom: 20px;
     }
 
     .products-title {
@@ -342,10 +592,11 @@
         flex-grow: 1;
     }
 
-    hr {
+    .hr-style {
         display: flex;
         width: 600px;
-        margin-top: -10px;
+        margin-top: 10px;
+        border: 1px solid #cccccc !important;
     }
 
     .contact {
@@ -358,7 +609,6 @@
         display: flex;
         flex-direction: column;
     }
-
 
     /* Footer */
     .footer {
