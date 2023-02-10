@@ -20,7 +20,7 @@
                     <h3>Contact</h3>
                     <p>
                         <span class="icon icon-home"></span> NO.111 Meifeng Rd., Fuzhou,Fujian, China 350003<br />
-                        <span class="fa fa-envelope"></span> info<img src="src/images/at.png" style="width: 18px;">monttree.com
+                        <span class="fa fa-envelope"></span> info<img src="/src/images/at.png" style="width: 18px;">monttree.com
                         <br />
                         <span class="icon icon-phone"></span> 86 591 83752442 <br />
                         <i class="fa fa-fax"></i> 86 591 87899101 <br />

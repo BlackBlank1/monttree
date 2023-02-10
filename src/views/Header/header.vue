@@ -3,7 +3,7 @@
     <div class="navbar-header" id="page1">
         <div style="width: 100%; position: fixed; z-index: 999; background: white; border: 1px solid #cccccc">
             <div class="navbar-title">
-                <img src="src/images/logo.png" alt="" style="height: 100%">
+                <img src="/src/images/logo.png" alt="" style="height: 100%">
                 <div style="flex-grow: 1"></div>
                 <div class="title-info" @click="Submit(1)">
                     <span> Home </span>
@@ -362,7 +362,7 @@
                     <h3 style="font-size: 24px">Contact</h3>
                     <p style="font-size: 18px">
                         <span class="icon icon-home"></span> NO.111 Meifeng Rd., Fuzhou,Fujian, China 350003<br/>
-                        <span class="fa fa-envelope"></span> info<img src="src/images/at.png" style="width: 18px;">monttree.com
+                        <span class="fa fa-envelope"></span> info<img src="/src/images/at.png" style="width: 18px;" alt="at.png">monttree.com
                         <br/>
                         <span class="icon icon-phone"></span> 86 591 83752442 <br/>
                         <i class="fa fa-fax"></i> 86 591 87899101 <br/>
@@ -574,7 +574,7 @@
     /* Products*/
     .products-bg {
         display: flex;
-        background-image: url("src/images/bg/divider1_1.jpg");
+        background-image: url("/src/images/bg/divider1_1.jpg");
         height: 300px;
         align-items: center;
         justify-content: center;
@@ -601,7 +601,7 @@
     .contact-outside {
         display: flex;
         height: 300px;
-        background-image: url("src/images/bg/divider1_3.jpg");
+        background-image: url("/src/images/bg/divider1_3.jpg") !important;
     }
 
     .contact-title {

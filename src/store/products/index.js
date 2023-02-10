@@ -21,7 +21,7 @@ const actions = {
         let result = await reqProductsList();
         for (const key in result) {
             for (const it of result[key]) {
-                it.image = "http://localhost:3000/images/products/" + it.image;
+                it.image = "http://localhost:4000/images/products/" + it.image;
                 // console.log(it)
             }
         }

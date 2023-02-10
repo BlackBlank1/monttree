@@ -13,7 +13,7 @@ import "nprogress/nprogress.css"
 const requests = axios.create({
     //配置对象
     //基础路径，发请求的时候，路径当中会出现api
-    baseURL: "http://localhost:3000/api",
+    baseURL: "http://localhost:4000/api",
     //请求超时的时间
     timeout: 5000,
 

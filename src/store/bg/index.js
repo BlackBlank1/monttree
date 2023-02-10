@@ -15,7 +15,7 @@ const actions = {
         let result = await reqBackgroundList();
         for (const key in result) {
             for (const it of result[key]) {
-                it.image = "http://localhost:3000/images/bg/" + it.image;
+                it.image = "http://localhost:4000/images/bg/" + it.image;
                 // console.log(it.image);
             }
         }
