@@ -25,11 +25,12 @@
                                 <div style="margin-bottom: -10px">
                                     Aspherical
                                 </div>
-                                 <div>
-                                     Lens
-                                 </div>
+                                <div>
+                                    Lens
+                                </div>
                             </li>
-                            <li style="height: 60px; display: flex; flex-direction: column;" @click="Submit(10)">
+                            <li style="height: 60px; display: flex; flex-direction: column;"
+                                @click="Submit(10)">
                                 <div style="margin-bottom: -10px">
                                     Parabolic
                                 </div>
@@ -177,7 +178,8 @@
             <div style="display: flex; flex-wrap: wrap; flex-direction: column">
                 <div class="col-lg-12">
                     <h2>Prism</h2>
-                    <p style="font-size: 18px">Material: BK7, quartz, fused silica, ZNSE, ZNS, germanium, silicon, sapphire, YAG, CaF2, BaF2,
+                    <p style="font-size: 18px">Material: BK7, quartz, fused silica, ZNSE, ZNS, germanium, silicon,
+                        sapphire, YAG, CaF2, BaF2,
                         SiC and etc
                         <br> The surface accuracy can be λ/30
                         <br> The angle toerlance can be +/-1 second
@@ -193,23 +195,31 @@
                         <div style="overflow: hidden;width: 255px; height: 150px" v-if="item.description">
                             <img :src="item.image" :alt="item.name" style="width: 100%; height: 100%">
                         </div>
-                        <div style="background: #3498db; height: 40px; display: flex; justify-content: center; align-items: center" v-if="!item.description">
+                        <div style="background: #3498db; height: 40px; display: flex; justify-content: center; align-items: center"
+                             v-if="!item.description">
                             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
                                 <span style="color: white; font-weight: bold">{{ item.name }}</span>
                                 <div style="display: flex; flex-direction: column;padding: 0; margin: 0">
-                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description3">{{ item.description3 }}</span>
                                 </div>
                             </div>
                         </div>
-                        <div style="background: #3498db; height: 80px; display: flex; justify-content: center; align-items: center" v-if="item.description">
+                        <div style="background: #3498db; height: 80px; display: flex; justify-content: center; align-items: center"
+                             v-if="item.description">
                             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
                                 <span style="color: white; font-weight: bold">{{ item.name }}</span>
                                 <div style="display: flex; flex-direction: column;padding: 0; margin: 0">
-                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description3">{{ item.description3 }}</span>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +235,8 @@
             <div style="display: flex; flex-direction: column; margin-top: 40px">
                 <div class="col-lg-12">
                     <h2>Lens</h2>
-                    <p style="font-size: 18px">Material: Schott glass, fused silica, ZNSE, ZNS, germanium, silicon, sapphire, MgF2, LiF, GaAs,
+                    <p style="font-size: 18px">Material: Schott glass, fused silica, ZNSE, ZNS, germanium, silicon,
+                        sapphire, MgF2, LiF, GaAs,
                         CaF2, BaF2, polycarbanate, PMMA and etc
                         <br> We can process the lens size to be 500mm,
                         <br> The surface accuracy can be λ/30
@@ -243,9 +254,12 @@
                             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
                                 <span style="color: white; font-weight: bold">{{ item.name }}</span>
                                 <div style="display: flex; flex-direction: column;">
-                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description3">{{ item.description3 }}</span>
                                 </div>
                             </div>
                         </div>
@@ -276,9 +290,12 @@
                             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
                                 <span style="color: white; font-weight: bold">{{ item.name }}</span>
                                 <div style="display: flex; flex-direction: column;">
-                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description3">{{ item.description3 }}</span>
                                 </div>
                             </div>
                         </div>
@@ -308,9 +325,12 @@
                             <div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
                                 <span style="color: white; font-weight: bold">{{ item.name }}</span>
                                 <div style="display: flex; flex-direction: column;">
-                                    <span style="color: white; font-size: 14px" v-if="item.description">{{ item.description }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description2">{{ item.description2 }}</span>
-                                    <span style="color: white; font-size: 14px" v-if="item.description3">{{ item.description3 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description">{{ item.description }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description2">{{ item.description2 }}</span>
+                                    <span style="color: white; font-size: 14px"
+                                          v-if="item.description3">{{ item.description3 }}</span>
                                 </div>
                             </div>
                         </div>
@@ -451,11 +471,12 @@
 
 <!--Drop down box css-->
 <style>
+
     .topclick {
         height: 50px;
         width: 100px;
-        position:relative;
-        display:inline-block;
+        position: relative;
+        display: inline-block;
     }
 
     .ltbox1 {
@@ -463,31 +484,33 @@
         height: 50px;
         text-align: center;
         line-height: 50px;
-        cursor: pointer;        /*鼠标指针经过*/
+        cursor: pointer; /*鼠标指针经过*/
     }
-    .ltbox2{
+
+    .ltbox2 {
         width: 120px;
         margin-top: 2px;
         border-radius: 5px;
         background-color: white;
-        display: none;        /*使下拉菜单栏消失*/
+        display: none; /*使下拉菜单栏消失*/
         margin-left: -10px;
     }
 
-    .ltbox2 li{
+    .ltbox2 li {
         height: 40px;
         width: 120px;
         line-height: 40px;
-        display: flex;        /*使下拉菜单栏显示*/
+        display: flex; /*使下拉菜单栏显示*/
         justify-content: center;
         align-items: center;
         margin-left: -40px;
     }
-    .ltbox2 li:hover{
-        background-color:#cccccc;
+
+    .ltbox2 li:hover {
+        background-color: #cccccc;
     }
 
-    .topclick:hover .ltbox2{
+    .topclick:hover .ltbox2 {
         display: block;
     }
 </style>
